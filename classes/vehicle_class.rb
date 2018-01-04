@@ -30,12 +30,25 @@ class Vehicle
     @cars ||= count_cars
   end
 
-  private
-
   def count_cars
-    sleep 0.5
+    sleep 1
     5
   end
+
+  # memoization with arguments
+  # keep a seperate cache for all the arguments being passed in
+  def new_cars(*args)
+    # set @new_cars to a new hash so args can be passed in as a key
+    @new_cars ||= {}
+    @new_cars[args] ||= add_cars(*args)
+  end
+
+  def add_cars(num)
+    sleep 0.5
+    5 + num
+  end
+
+  private :count_cars, :add_cars
 end
 
 veh1 = Vehicle.new(1, 2000, 'BMW', '740il', 'Black', 'Sedan')
@@ -55,3 +68,6 @@ puts veh5.vehicle_info
 puts Vehicle.find_vehicle('bmw')
 
 puts veh1.cars
+puts veh1.cars
+
+puts veh1.new_cars(3)
