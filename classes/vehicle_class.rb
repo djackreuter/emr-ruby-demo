@@ -5,6 +5,7 @@ require '../files/module.rb'
 class Vehicle
   # extend module so method is available to class
   extend VehicleClassification
+  include VehicleMiscInfo
 
   attr_accessor :id, :year, :make, :model, :color, :type
 
@@ -80,6 +81,9 @@ puts veh1.new_cars(3)
 
 # print method from module
 puts Vehicle.veh_class
+
+# print instance method from module
+puts veh1.other_info
 
 # subclassing (inheritance) demo
 class Mercedes < Vehicle
