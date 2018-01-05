@@ -1,5 +1,11 @@
+# import module
+require '../files/module.rb'
+
 # User class for EMR Ruby Demo
 class Vehicle
+  # extend module so method is available to class
+  extend VehicleClassification
+
   attr_accessor :id, :year, :make, :model, :color, :type
 
   # class variable
@@ -71,3 +77,14 @@ puts veh1.cars
 puts veh1.cars
 
 puts veh1.new_cars(3)
+
+# print method from module
+puts Vehicle.veh_class
+
+# subclassing (inheritance) demo
+class Mercedes < Vehicle
+end
+
+benz = Mercedes.new(1, 2018, 'Mercedes', 'GT R AMG', 'Green', 'Coupe')
+
+puts benz.vehicle_info
