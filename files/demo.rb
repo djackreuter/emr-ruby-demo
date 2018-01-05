@@ -42,3 +42,28 @@ some_number = lambda do |a, b|
 end
 
 puts some_number.call(4, 5)
+
+# namespacing demo
+module One
+  # class for module one
+  class Foo
+    def bar
+      puts 'foobar'
+    end
+  end
+end
+
+module Two
+  # class for module two
+  class Foo
+    def bar
+      puts 'bar of foo'
+    end
+  end
+end
+
+mod1 = One::Foo.new
+mod2 = Two::Foo.new
+
+puts mod1.bar
+puts mod2.bar
