@@ -67,3 +67,14 @@ mod2 = Two::Foo.new
 
 puts mod1.bar
 puts mod2.bar
+
+# struct
+Person = Struct.new(:name, :location) do
+  def person_info
+    "#{name} lives in #{location}"
+  end
+end
+
+person1 = Person.new('Jack', 'Albuquerque')
+
+puts person1.person_info
