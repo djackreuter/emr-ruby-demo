@@ -16,6 +16,8 @@ coffee_lg_price.to_f
 coffee_sm = 'small'
 coffee_md = 'medium'
 coffee_lg = 'large'
+
+# handle coffee 
 if beverage == 'coffee'
   puts 'Great choice!'
   sleep 1
@@ -28,6 +30,8 @@ if beverage == 'coffee'
   print "and our large is #{coffee_lg_price}. "
   sleep 1
   print 'What size would you like today? '
+
+  # handle size
   size = gets.chomp
   if size == coffee_sm
     print "Great! Your #{coffee_sm} is going to be #{coffee_sm_price}. "
@@ -36,15 +40,43 @@ if beverage == 'coffee'
   elsif size == coffee_lg
     print "Great! Your #{coffee_lg} is going to be #{coffee_lg_price}. "
   end
+
+  # payment
   print 'Will that be cash or card? '
   payment_method = gets.chomp
+  # payment for small coffee
   if payment_method == 'cash' && size == coffee_sm
     print 'Please enter amount: '
     ammount = gets.chomp.to_f
     if ammount > coffee_sm_price
       change = coffee_sm_price - ammount
+      change.round(3)
       puts "Your change is #{change}. Here is your drink, have a nice day!"
     elsif ammount == coffee_sm_price
+      puts "Great! Here's your drink, have a nice day!"
+    end
+  end
+  # payment for medium coffee
+  if payment_method == 'cash' && size == coffee_md
+    print 'Please enter amount: '
+    ammount = gets.chomp.to_f
+    if ammount > coffee_md_price
+      change = coffee_md_price - ammount
+      change.round(3)
+      puts "Your change is #{change}. Here is your drink, have a nice day!"
+    elsif ammount == coffee_md_price
+      puts "Great! Here's your drink, have a nice day!"
+    end
+  end
+  # payment for large coffee
+  if payment_method == 'cash' && size == coffee_lg
+    print 'Please enter amount: '
+    ammount = gets.chomp.to_f
+    if ammount > coffee_lg_price
+      change = coffee_lg_price - ammount
+      change.round(3)
+      puts "Your change is #{change}. Here is your drink, have a nice day!"
+    elsif ammount == coffee_lg_price
       puts "Great! Here's your drink, have a nice day!"
     end
   end
