@@ -80,4 +80,31 @@ if beverage == 'coffee'
       puts "Great! Here's your drink, have a nice day!"
     end
   end
+
+  # handle card payment
+  if payment_method == 'card'
+    print 'Will that be credit or debit? '
+    card_method = gets.chomp
+    if card_method == 'credit'
+      puts 'Please swipe your card: '
+      sleep 5
+      puts 'Approved!'
+      sleep 1
+      print "Excellent, here is your drink #{name}, have a great day!"
+    end
+    if card_method == 'debit'
+      print 'Please enter your pin: '
+      pin = gets.chomp.to_i
+      sleep 5
+      if pin != 0000
+        puts 'Declined!'
+        sleep 1
+        puts "Sorry #{name} no coffee for you! "
+      else
+        puts 'Approved!'
+        sleep 1
+        print "Excellent, here is your drink #{name}, have a great day!"
+      end
+    end
+  end
 end
