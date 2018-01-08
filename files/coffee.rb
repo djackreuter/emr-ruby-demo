@@ -100,10 +100,19 @@ if beverage == 'coffee'
         puts 'Declined!'
         sleep 1
         puts "Sorry #{name} no coffee for you! "
+        sleep 2
+        print 'Try again, please enter your pin: '
+        pin = gets.chomp.to_i
+        sleep 5
+        if pin == 0000
+          puts 'Approved!'
+          sleep 1
+          puts "Excellent, here is your drink #{name}, have a great day!"
+        end
       else
         puts 'Approved!'
         sleep 1
-        print "Excellent, here is your drink #{name}, have a great day!"
+        puts "Excellent, here is your drink #{name}, have a great day!"
       end
     end
   end
