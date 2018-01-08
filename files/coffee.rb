@@ -7,7 +7,7 @@ name = name.capitalize
 print "Thanks #{name}!, would you like coffee or tea today? "
 beverage = gets.chomp
 
-# declare variables 
+# declare variables
 small = 'small'
 medium = 'medium'
 large = 'large'
@@ -60,9 +60,9 @@ if beverage == 'coffee'
     if ammount > coffee_sm_price
       change = coffee_sm_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your coffee #{name}, have a nice day!"
     elsif ammount == coffee_sm_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Great! Here's your coffee #{name}, have a nice day!"
     end
   end
   # payment for medium coffee
@@ -72,9 +72,9 @@ if beverage == 'coffee'
     if ammount > coffee_md_price
       change = coffee_md_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your coffee #{name}, have a nice day!"
     elsif ammount == coffee_md_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Great! Here's your coffee #{name}, have a nice day!"
     end
   end
   # payment for large coffee
@@ -84,9 +84,9 @@ if beverage == 'coffee'
     if ammount > coffee_lg_price
       change = coffee_lg_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your coffee #{name}, have a nice day!"
     elsif ammount == coffee_lg_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Great! Here's your coffee #{name}, have a nice day!"
     end
   end
 
@@ -99,7 +99,7 @@ if beverage == 'coffee'
       sleep 5
       puts 'Approved!'
       sleep 1
-      puts "Excellent, here is your drink #{name}, have a great day!"
+      puts "Excellent, here is your coffee #{name}, have a great day!"
     end
     if card_method == 'debit'
       print 'Please enter your pin: '
@@ -116,12 +116,12 @@ if beverage == 'coffee'
         if pin == 0000
           puts 'Approved!'
           sleep 1
-          puts "Excellent, here is your drink #{name}, have a great day!"
+          puts "Excellent, here is your coffee #{name}, have a great day!"
         end
       else
         puts 'Approved!'
         sleep 1
-        puts "Excellent, here is your drink #{name}, have a great day!"
+        puts "Excellent, here is your coffee #{name}, have a great day!"
       end
     end
   end
@@ -144,50 +144,50 @@ if beverage == 'tea'
   # handle size
   size = gets.chomp
   if size == small
-    print "Great! Your #{small} is going to be #{coffee_sm_price}. "
+    print "Great! Your #{small} is going to be #{tea_sm_price}. "
   elsif size == medium
-    print "Great! Your #{medium} is going to be #{coffee_md_price}. "
+    print "Great! Your #{medium} is going to be #{tea_md_price}. "
   elsif size == large
-    print "Great! Your #{large} is going to be #{coffee_lg_price}. "
+    print "Great! Your #{large} is going to be #{tea_lg_price}. "
   end
 
   # payment
   print 'Will that be cash or card? '
   payment_method = gets.chomp
-  # payment for small coffee
+  # payment for small tea
   if payment_method == 'cash' && size == small
     print 'Please enter amount: '
     ammount = gets.chomp.to_f
-    if ammount > coffee_sm_price
-      change = coffee_sm_price - ammount
+    if ammount > tea_sm_price
+      change = tea_sm_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
-    elsif ammount == coffee_sm_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your tea #{name}, have a nice day!"
+    elsif ammount == tea_sm_price
+      puts "Great! Here's your tea #{name}, have a nice day!"
     end
   end
-  # payment for medium coffee
+  # payment for medium tea
   if payment_method == 'cash' && size == medium
     print 'Please enter amount: '
     ammount = gets.chomp.to_f
-    if ammount > coffee_md_price
-      change = coffee_md_price - ammount
+    if ammount > tea_md_price
+      change = tea_md_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
-    elsif ammount == coffee_md_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your tea #{name}, have a nice day!"
+    elsif ammount == tea_md_price
+      puts "Great! Here's your tea #{name}, have a nice day!"
     end
   end
-  # payment for large coffee
+  # payment for large tea
   if payment_method == 'cash' && size == large
     print 'Please enter amount: '
     ammount = gets.chomp.to_f
-    if ammount > coffee_lg_price
-      change = coffee_lg_price - ammount
+    if ammount > tea_lg_price
+      change = tea_lg_price - ammount
       change = change.round(3)
-      puts "Your change is #{change}. Here is your drink #{name}, have a nice day!"
-    elsif ammount == coffee_lg_price
-      puts "Great! Here's your drink #{name}, have a nice day!"
+      puts "Your change is #{change}. Here is your tea #{name}, have a nice day!"
+    elsif ammount == tea_lg_price
+      puts "Great! Here's your tea #{name}, have a nice day!"
     end
   end
 
@@ -200,7 +200,7 @@ if beverage == 'tea'
       sleep 5
       puts 'Approved!'
       sleep 1
-      puts "Excellent, here is your drink #{name}, have a great day!"
+      puts "Excellent, here is your tea #{name}, have a great day!"
     end
     if card_method == 'debit'
       print 'Please enter your pin: '
@@ -209,7 +209,7 @@ if beverage == 'tea'
       if pin != 0000
         puts 'Declined!'
         sleep 1
-        puts "Sorry #{name} no coffee for you! "
+        puts "Sorry #{name} no tea for you! "
         sleep 2
         print 'Try again, please enter your pin: '
         pin = gets.chomp.to_i
@@ -217,14 +217,13 @@ if beverage == 'tea'
         if pin == 0000
           puts 'Approved!'
           sleep 1
-          puts "Excellent, here is your drink #{name}, have a great day!"
+          puts "Excellent, here is your tea #{name}, have a great day!"
         end
       else
         puts 'Approved!'
         sleep 1
-        puts "Excellent, here is your drink #{name}, have a great day!"
+        puts "Excellent, here is your tea #{name}, have a great day!"
       end
     end
   end
 end
-
