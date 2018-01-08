@@ -17,7 +17,7 @@ coffee_sm = 'small'
 coffee_md = 'medium'
 coffee_lg = 'large'
 
-# handle coffee 
+# handle coffee
 if beverage == 'coffee'
   puts 'Great choice!'
   sleep 1
@@ -50,7 +50,7 @@ if beverage == 'coffee'
     ammount = gets.chomp.to_f
     if ammount > coffee_sm_price
       change = coffee_sm_price - ammount
-      change.round(3)
+      change = change.round(3)
       puts "Your change is #{change}. Here is your drink, have a nice day!"
     elsif ammount == coffee_sm_price
       puts "Great! Here's your drink, have a nice day!"
@@ -62,7 +62,7 @@ if beverage == 'coffee'
     ammount = gets.chomp.to_f
     if ammount > coffee_md_price
       change = coffee_md_price - ammount
-      change.round(3)
+      change = change.round(3)
       puts "Your change is #{change}. Here is your drink, have a nice day!"
     elsif ammount == coffee_md_price
       puts "Great! Here's your drink, have a nice day!"
@@ -74,11 +74,10 @@ if beverage == 'coffee'
     ammount = gets.chomp.to_f
     if ammount > coffee_lg_price
       change = coffee_lg_price - ammount
-      change.round(3)
+      change = change.round(3)
       puts "Your change is #{change}. Here is your drink, have a nice day!"
     elsif ammount == coffee_lg_price
       puts "Great! Here's your drink, have a nice day!"
     end
   end
-  
 end
