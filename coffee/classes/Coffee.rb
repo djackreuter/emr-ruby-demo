@@ -28,19 +28,20 @@ class Coffee
   def process_input(input)
     if roast.nil?
       roast = input
-
+    elsif sugar_options.includes?(input)
+      self.sugar = input
+    elsif cream.nil?
+      cream = input
+    elsif size.nil?
+      size = input
+    end
   end
 
-  def order
-    puts "Here is your #{@roast} roast coffee with "
+  def sugar_options
+    @sugar_options ||= ['0', '1', '2']
   end
 
+  def description
+    puts "You have a #{@size} #{@roast} roast coffee with #{@cream} and #{@sugar}"
+  end
 end
-
-cust_order = Coffee.new('regular', 'cream')
-
-cust_order.num_cream(2)
-
-cust_order.num_sugar(0)
-
-puts cust_order.order
