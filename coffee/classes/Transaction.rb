@@ -24,20 +24,20 @@ class Transaction
 
   def prompt
     if self.coffee.incomplete?
-      puts Coffee.new.next_question
-      gets.chop
-    else
-      puts Coffee.new.description
+      puts self.coffee.next_question
+      self.coffee.process_input(gets.chomp)
     end
   end
-
-  self.coffee.process_input('gets.chomp')
-
 end
 
-transaction = Transaction.new('medium')
-coffee = Coffee.new
+transaction = Transaction.new
+# coffee = Coffee.new
 
+# self.coffee.process_input('gets.chomp')
+
+while transaction.coffee.incomplete?
 puts transaction.prompt
+end
 
-puts coffee.description
+# puts self.coffee.description
+puts transaction.coffee.description
