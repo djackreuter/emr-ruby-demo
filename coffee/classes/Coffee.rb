@@ -13,7 +13,7 @@ class Coffee
 
   def next_question
     if roast.nil?
-      'What roast would you like? '
+      "What roast would you like? #{roast_options.join(', ')}"
     elsif sugar.nil?
       'Would you like any sugar in that? '
     elsif cream.nil?
@@ -26,13 +26,13 @@ class Coffee
   end
 
   def process_input(input)
-    if roast_options.includes?(input)
+    if roast_options.include?(input)
       self.roast = input
-    elsif sugar_options.includes?(input)
+    elsif sugar_options.include?(input)
       self.sugar = input
-    elsif cream_options.includes?(input)
+    elsif cream_options.include?(input)
       self.cream = input
-    elsif size_options.includes?(input)
+    elsif size_options.include?(input)
       self.size = input
     end
   end
@@ -50,10 +50,10 @@ class Coffee
   end
 
   def size_options
-    @size_options = ['small', 'medium', 'large']
+    @size_options ||= ['small', 'medium', 'large']
   end
 
   def description
-    puts "You have a #{@size} #{@roast} roast coffee with #{@cream} and #{@sugar}"
+    puts "You have a #{@size_options} #{@roast_options} roast coffee with #{@cream_options} and #{@sugar_options}"
   end
 end
