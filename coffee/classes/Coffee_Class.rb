@@ -1,38 +1,32 @@
 # Coffee Class
 class Coffee
-  attr_accessor :size, :addons
+  attr_accessor :roast, :sugar, :cream, :size
 
-  def initialize(size, addons)
-    @size = size
-    @addons = addons
+  # def initialize(roast, addons)
+  #   @roast = roast
+  #   @addons = addons
+  # end
+
+  def incomplete?
+    roast.nil? || sugar.nil? || cream.nil? || size.nil?
   end
 
-  def coffee_price
-    if @size == 'small'
-      @price = 3.95
-      puts @price
-    end
-    if @size == 'medium'
-      @price = 4.75
-      puts @price
-    end
-    if @size == 'large'
-      @price = 6.95
-      puts @price
-    end
+  def next_question
+    if roast.nil? 
+      "What roast would you like? "
+    elsif 
   end
 
-  def optional_addons
-    #
+  def order
+    puts "Here is your #{@roast} roast coffee with "
   end
 
-  def order_total
-    puts "Your #{@size} coffee comes to #{@price}"
-  end
 end
 
-cust_order = Coffee.new('large', nil)
+cust_order = Coffee.new('regular', 'cream')
 
-cust_order.coffee_price
+cust_order.num_cream(2)
 
-puts cust_order.order_total
+cust_order.num_sugar(0)
+
+puts cust_order.order
