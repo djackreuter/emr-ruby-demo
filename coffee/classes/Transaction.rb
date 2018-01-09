@@ -1,47 +1,43 @@
-require 'Coffee_Class.rb'
+require './Coffee.rb'
 # transaction class for coffee
 class Transaction
-  extend Coffee
+  attr_accessor :coffee
 
-  attr_accessor :size, :payment
-
-  def initialize(size, payment)
-    @size = size
-    @payment = payment
+  def initialize
+    self.coffee = Coffee.new
   end
 
-  def coffee_price
-    if @size == 'small'
-      @price = 3.95
-      puts @price
-    end
-    if @size == 'medium'
-      @price = 4.75
-      puts @price
-    end
-    if @size == 'large'
-      @price = 6.95
-      puts @price
-    end
-  end
+  # def coffee_price
+  #   if @size == 'small'
+  #     @price = 3.95
+  #     puts @price
+  #   end
+  #   if @size == 'medium'
+  #     @price = 4.75
+  #     puts @price
+  #   end
+  #   if @size == 'large'
+  #     @price = 6.95
+  #     puts @price
+  #   end
+  # end
 
   def prompt
-    if coffee.incomplete?
-      puts coffee.next_question
+    if self.coffee.incomplete?
+      puts Coffee.new.next_question
       gets.chop
     else
-      puts coffee.description
+      puts Coffee.new.description
     end
   end
 
-  def order_total
-    puts "Your #{@size} coffee comes to #{@price}"
-  end
+  self.coffee.process_input('gets.chomp')
 
 end
 
-total = Transaction.new('large', nil)
+transaction = Transaction.new('medium')
+coffee = Coffee.new
 
-total.coffee_price
+puts transaction.prompt
 
-puts total.order_total
+puts coffee.description
