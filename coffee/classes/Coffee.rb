@@ -26,19 +26,31 @@ class Coffee
   end
 
   def process_input(input)
-    if roast.nil?
-      roast = input
+    if roast_options.includes?(input)
+      self.roast = input
     elsif sugar_options.includes?(input)
       self.sugar = input
-    elsif cream.nil?
-      cream = input
-    elsif size.nil?
-      size = input
+    elsif cream_options.includes?(input)
+      self.cream = input
+    elsif size_options.includes?(input)
+      self.size = input
     end
+  end
+
+  def roast_options
+    @roast_options ||= ['light', 'regular', 'dark']
   end
 
   def sugar_options
     @sugar_options ||= ['0', '1', '2']
+  end
+
+  def cream_options
+    @cream_options ||= ['0', '1', '2']
+  end
+
+  def size_options
+    @size_options = ['small', 'medium', 'large']
   end
 
   def description
