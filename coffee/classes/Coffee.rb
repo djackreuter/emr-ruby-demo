@@ -12,9 +12,23 @@ class Coffee
   end
 
   def next_question
-    if roast.nil? 
-      "What roast would you like? "
-    elsif 
+    if roast.nil?
+      'What roast would you like? '
+    elsif sugar.nil?
+      'Would you like any sugar in that? '
+    elsif cream.nil?
+      'Would you like any cream? '
+    elsif size.nil?
+      'What size would you like? '
+    else
+      "Sorry, I didn't quite get that "
+    end
+  end
+
+  def process_input(input)
+    if roast.nil?
+      roast = input
+
   end
 
   def order

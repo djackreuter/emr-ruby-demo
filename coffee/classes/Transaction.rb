@@ -1,5 +1,8 @@
+require 'Coffee_Class.rb'
 # transaction class for coffee
 class Transaction
+  extend Coffee
+
   attr_accessor :size, :payment
 
   def initialize(size, payment)
