@@ -18,7 +18,7 @@ class Coffee
     elsif size.nil?
       "What size would you like? #{size_options.join(', ')}"
     else
-      "Sorry, I didn't quite get that "
+      "Sorry, I didn't quite get that"
     end
   end
 
@@ -63,7 +63,7 @@ class Coffee
     if self.size == 'large'
       self.price = 6.99
     end
-    if self.sugar == '1' || '2'
+    if self.sugar == '1' || self.sugar == '2'
       self.price += 0.25
     end
     if self.cream == 'yes'
@@ -74,9 +74,9 @@ class Coffee
   # text to display based on user selection
   def description
     if cream == 'yes'
-      puts "You have a #{size} #{roast} roast coffee with cream and #{sugar} sugar Your total is #{price}"
+      "You have a #{size} #{roast} roast coffee with cream and #{sugar} sugar. Your total is #{price}"
     else
-      puts "You have a #{size} #{roast} roast coffee with #{cream} cream and #{sugar} sugar.  Your total is #{price}."
+      "You have a #{size} #{roast} roast coffee with #{cream} cream and #{sugar} sugar. Your total is #{price}."
     end
   end
 end
