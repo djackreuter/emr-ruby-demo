@@ -19,11 +19,23 @@ class CoffeeTest < Minitest::Test
     @valid_price_lg_sugar = 7.74
   end
 
+  # test valid incomplete?
   def test_incomplete?
     coffee = Coffee.new
     assert_equal true, coffee.incomplete?
   end
 
+  # test invalid incomplete?
+  def test_invalid_incomplete?
+    coffee = Coffee.new
+    coffee.roast = @valid_roast
+    coffee.sugar = @valid_sugar
+    coffee.cream = @valid_cream
+    coffee.size = @valid_size
+    assert_equal false, coffee.incomplete?
+  end
+
+  # test valid next question
   def test_next_question
     coffee = Coffee.new
     coffee.roast = @valid_roast
@@ -31,6 +43,12 @@ class CoffeeTest < Minitest::Test
     coffee.cream = @valid_cream
     coffee.size = @valid_size
     assert_equal "Sorry, I didn't quite get that", coffee.next_question
+  end
+
+  # test invalid next_question
+  def test_invalid_next_question
+    coffee = Coffee.new
+    assert_equal "What roast would you like? light, regular, dark", coffee.next_question
   end
 
   def test_process_input
