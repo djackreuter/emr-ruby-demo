@@ -15,11 +15,11 @@ class Coffee
     if roast.nil?
       "What roast would you like? #{roast_options.join(', ')}"
     elsif sugar.nil?
-      'Would you like any sugar in that? '
+      "How many sugars would you like? #{sugar_options.join(', ')}"
     elsif cream.nil?
-      'Would you like any cream? '
+      "How many creams would you like? #{cream_options.join(', ')}"
     elsif size.nil?
-      'What size would you like? '
+      "Would you like small, medium, or large? #{size_options.join(', ')}"
     else
       "Sorry, I didn't quite get that "
     end

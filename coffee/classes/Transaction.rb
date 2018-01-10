@@ -36,7 +36,7 @@ transaction = Transaction.new
 # self.coffee.process_input('gets.chomp')
 
 while transaction.coffee.incomplete?
-puts transaction.prompt
+  puts transaction.prompt
 end
 
 # puts self.coffee.description
