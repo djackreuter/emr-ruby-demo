@@ -97,4 +97,20 @@ class CoffeeTest < Minitest::Test
     assert_equal @valid_price_lg_sugar, coffee.price
   end
 
+  def test_description
+    coffee = Coffee.new
+    coffee.roast = @valid_roast
+    coffee.size = @valid_size
+    coffee.cream = @valid_cream # cream 'yes'
+    coffee.sugar = @valid_sugar
+    coffee.coffee_price
+    @valid_price = coffee.price
+    assert_equal "You have a #{@valid_size} #{@valid_roast} roast coffee with cream and #{@valid_sugar} sugar. Your total is #{@valid_price}", coffee.description
+    # set coffee cream from previous test to no
+    @valid_cream = 'no'
+    coffee.cream = 'no'
+    coffee.coffee_price
+    @valid_price = coffee.price
+    assert_equal "You have a #{@valid_size} #{@valid_roast} roast coffee with #{@valid_cream} cream and #{@valid_sugar} sugar. Your total is #{@valid_price}.", coffee.description
+  end
 end
