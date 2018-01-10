@@ -17,9 +17,9 @@ class Coffee
     elsif sugar.nil?
       "How many sugars would you like? #{sugar_options.join(', ')}"
     elsif cream.nil?
-      "How many creams would you like? #{cream_options.join(', ')}"
+      "Would you like any cream? #{cream_options.join(', ')}"
     elsif size.nil?
-      "Would you like small, medium, or large? #{size_options.join(', ')}"
+      "What size would you like? #{size_options.join(', ')}"
     else
       "Sorry, I didn't quite get that "
     end
@@ -46,7 +46,7 @@ class Coffee
   end
 
   def cream_options
-    @cream_options ||= ['0', '1', '2']
+    @cream_options ||= ['yes', 'no']
   end
 
   def size_options
