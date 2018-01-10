@@ -7,21 +7,6 @@ class Transaction
     self.coffee = Coffee.new
   end
 
-  # def coffee_price
-  #   if @size == 'small'
-  #     @price = 3.95
-  #     puts @price
-  #   end
-  #   if @size == 'medium'
-  #     @price = 4.75
-  #     puts @price
-  #   end
-  #   if @size == 'large'
-  #     @price = 6.95
-  #     puts @price
-  #   end
-  # end
-
   def prompt
     if self.coffee.incomplete?
       puts self.coffee.next_question
@@ -40,4 +25,5 @@ while transaction.coffee.incomplete?
 end
 
 # puts self.coffee.description
+transaction.coffee.coffee_price
 puts transaction.coffee.description
