@@ -2,10 +2,12 @@
 class Coffee
   attr_accessor :roast, :sugar, :cream, :size, :price
 
+  # check if variables are nil
   def incomplete?
     roast.nil? || sugar.nil? || cream.nil? || size.nil?
   end
 
+  # prompt user for input to questions
   def next_question
     if roast.nil?
       "What roast would you like? #{roast_options.join(', ')}"
@@ -20,6 +22,7 @@ class Coffee
     end
   end
 
+  # take answers from user and store in variables
   def process_input(input)
     if roast_options.include?(input)
       self.roast = input
@@ -32,6 +35,7 @@ class Coffee
     end
   end
 
+  # set possible options for roast, sugar, cream, and size
   def roast_options
     @roast_options ||= %w[light regular dark]
   end
@@ -48,6 +52,7 @@ class Coffee
     @size_options ||= %w[small medium large]
   end
 
+  # set price for coffee based on selections
   def coffee_price
     if self.size == 'small'
       self.price = 3.99
@@ -66,6 +71,7 @@ class Coffee
     end
   end
 
+  # text to display based on user selection
   def description
     if cream == 'yes'
       puts "You have a #{size} #{roast} roast coffee with cream and #{sugar} sugar Your total is #{price}"
