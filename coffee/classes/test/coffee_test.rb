@@ -38,4 +38,24 @@ class CoffeeTest < Minitest::Test
     assert_equal @valid_size, coffee.size
   end
 
+  def test_roast_options
+    coffee = Coffee.new
+    assert_equal %w[light regular dark], coffee.roast_options
+  end
+
+  def test_sugar_options
+    coffee = Coffee.new
+    assert_equal %w[0 1 2], coffee.sugar_options
+  end
+
+  def test_cream_options
+    coffee = Coffee.new
+    assert_equal %w[yes no], coffee.cream_options
+  end
+
+  def test_size_options
+    coffee = Coffee.new
+    assert_equal %w[small medium large]
+  end
+
 end
