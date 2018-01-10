@@ -5,11 +5,18 @@ require '../Coffee.rb'
 class CoffeeTest < Minitest::Test
 
   def setup
-    coffee = Coffee.new
     @valid_roast = 'dark'
-    @valid_sugar = '0'
+    @valid_sugar = '1'
     @valid_cream = 'yes'
     @valid_size = 'small'
+    @valid_size_sm = 'small'
+    @valid_size_md = 'medium'
+    @valid_size_lg = 'large'
+    @valid_price_sm = 3.99
+    @valid_price_md = 4.79
+    @valid_price_md_sugar = 5.04
+    @valid_price_lg = 6.99
+    @valid_price_lg_sugar = 7.74
   end
 
   def test_incomplete?
@@ -55,7 +62,39 @@ class CoffeeTest < Minitest::Test
 
   def test_size_options
     coffee = Coffee.new
-    assert_equal %w[small medium large]
+    assert_equal %w[small medium large], coffee.size_options
+  end
+
+  def test_coffee_price
+    # small
+    coffee = Coffee.new
+    coffee.size = @valid_size_sm
+    coffee.coffee_price
+    assert_equal @valid_price_sm, coffee.price
+
+    # medium
+    coffee.size = @valid_size_md
+    coffee.coffee_price
+    assert_equal @valid_price_md, coffee.price
+
+    # large
+    coffee.size = @valid_size_lg
+    coffee.coffee_price
+    assert_equal @valid_price_lg, coffee.price
+
+    # w/ sugar
+    coffee.size = @valid_size_md
+    coffee.sugar = @valid_sugar
+    coffee.coffee_price
+    assert_equal @valid_price_md_sugar, coffee.price
+
+    # w/ cream
+    coffee.size = @valid_size_lg
+    # set sugar from previous test to 0
+    coffee.sugar = '0'
+    coffee.cream = @valid_cream
+    coffee.coffee_price
+    assert_equal @valid_price_lg_sugar, coffee.price
   end
 
 end
