@@ -1,4 +1,4 @@
-require './Coffee.rb'
+require_relative 'Coffee.rb'
 # transaction class for coffee
 class Transaction
   attr_accessor :coffee
