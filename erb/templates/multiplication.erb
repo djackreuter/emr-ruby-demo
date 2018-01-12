@@ -1,9 +1,9 @@
-<div>
+
   <% (1..12).each do |i| %>
-    <%= i %>
-    <% (1..12).each do |j| %>
-      <%= j %>
-      <%= i * j %>
+      <%= sprintf("%-4d",i) %>
+        <% (1..12).each do |j| %>
+        <%= sprintf("%-4d",j) %>
+        <%= sprintf("%-4d",i * j) %>
+      <% end %>
+      \n
     <% end %>
-  <% end %>
-</div>
