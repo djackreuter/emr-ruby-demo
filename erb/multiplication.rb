@@ -8,6 +8,6 @@ class Multiply
   end
 
   def build
-    ERB.new("#{read}").result(binding)
+    puts ERB.new("#{read}", nil, '>').result(binding)
   end
 end
