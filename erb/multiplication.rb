@@ -8,6 +8,8 @@ class Multiply
   end
 
   def build
+    x = (1..12)
+    y = (1..12)
     puts ERB.new("#{read}", nil, '>').result(binding)
   end
 end
