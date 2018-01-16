@@ -2,18 +2,16 @@
 <% @end_of_month = Date.civil(2018, 1, -1) %>
 
 <%= @beg_of_month.strftime("%B \n") %>
-
-<%= Date::DAYNAMES.join(' ') %>
-<%= "\n" %>
+      <%= Date::ABBR_DAYNAMES.join(" \t ") %>
+      <%= "\n" %>   
 <% (@beg_of_month..@end_of_month).each do |i| %>
   <% if i == @beg_of_month %>
     <% i.wday.times do %>
-      <% "%-3d" %>
+      <% "\t" %>
     <% end %>
   <% end %>
-  <%= "%3d" % i.day %>
-    <% if i.day % 7 == 0 %>
-      <%= "\n" %>
-    <% end %>
+  <%= "%3d" % i.mday %>
+  <% if i.mday % 7 == 0 %>
+    <%= "\n" %>
+  <% end %>
 <% end %>
-
