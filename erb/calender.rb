@@ -12,14 +12,13 @@ class Calender
   end
 
   def read
-    file = File.open('./templates/calender.erb')
-    contents = file.read
+    File.read('./templates/calender.erb')
   end
 
   def cal_dates
     print 'Enter year: '
     @year = gets.to_i
-    print 'Enter month: '
+    print 'Enter month (1 - 12): '
     @month = gets.to_i
   end
 
