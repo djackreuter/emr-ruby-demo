@@ -1,0 +1,14 @@
+<%= @beg_of_month.strftime("%B \n") %>
+      <%= Date::ABBR_DAYNAMES.join("\t") %>
+      <%= "\n" %>   
+<% (@beg_of_month..@end_of_month).each do |i| %>
+  <% if i == @beg_of_month %>
+    <% i.wday.times do %>
+    <% "\t" %>
+    <% end %>
+  <% end %>
+  <%= "%-3d" % i.mday %>
+  <% if i.wday == 6 %>
+    <%= "\n" %>
+  <% end %>
+<% end %>
