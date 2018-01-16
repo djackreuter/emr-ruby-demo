@@ -11,6 +11,8 @@ class Calender
   end
 
   def build
+    @beg_of_month = Date.civil(gets.to_i, gets.to_i, 1)
+    @end_of_month = Date.civil(gets.to_i, gets.to_i, -1)
     puts ERB.new("#{read}", nil, '>').result(binding)
   end
 end
