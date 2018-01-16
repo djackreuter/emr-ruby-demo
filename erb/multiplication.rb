@@ -2,9 +2,14 @@ require 'erb'
 
 # build multiplication class
 class Multiply
+
+  def self.run
+    initialize = Multiply.new
+    initialize.build
+  end
+
   def read
-    file = File.open('./templates/multiplication.erb')
-    contents = file.read
+    File.read('./templates/multiplication.erb')
   end
 
   def build
