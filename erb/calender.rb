@@ -1,6 +1,5 @@
 require 'erb'
 require 'date'
-require 'sinatra'
 
 # build multiplication class
 class Calender

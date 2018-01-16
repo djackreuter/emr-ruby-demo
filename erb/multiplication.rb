@@ -1,5 +1,4 @@
 require 'erb'
-require 'sinatra'
 
 # build multiplication class
 class Multiply
