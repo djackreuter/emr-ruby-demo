@@ -1,21 +1,26 @@
 require_relative 'config.rb'
-require 'pony'
+require 'mail'
 
 # class for sending mail
-class Mail
-  def self.send_mail
-    Pony.mail(from: params[:name],
-              to: 'jack@jackreuter.com',
-              subject: 'This is a test email!',
-              body: params[:message],
-              via: :smpt,
-              via_options: {
-                address: 'mail.jackreuter.com',
-                port: '465',
-                user_name: CONFIG[:username],
-                password: CONFIG[:password],
-                authentication: :plain,
-                domain: 'localhost.localdomain'
-              })
+class Mailer
+  def self.send_mail(params)
+    Mail.defaults do
+      delivery_method :smtp, {
+        port: 587,
+        address: 'smtp.mailgun.org',
+        user_name: CONFIG[:user_name],
+        password: CONFIG[:password]
+      }
+    end
+
+    mail = Mail.deliver do
+      to CONFIG[:recipient]
+      from params[:email]
+      subject 'This is a test email'
+
+      text_part do
+        body params[:message]
+      end
+    end
   end
 end
