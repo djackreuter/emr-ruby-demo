@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'date'
 
+get '/' do
+  erb :index
+end
+
 get '/multiply' do
   @x = (1..12)
   @y = (1..12)
