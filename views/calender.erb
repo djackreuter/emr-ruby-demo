@@ -1,14 +1,58 @@
-<%= @beg_of_month.strftime("%B \n") %>
-      <%= Date::ABBR_DAYNAMES.join("\t") %>
-      <%= "\n" %>   
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <title>Calender</title>
+  </head>
+  <body>
+    <h1>Calender</h1>
+    <h2>January</h2>
+    <%# <h3><%= Date::ABBR_DAYNAMES.join("\t") %>
+    <table>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <% (@beg_of_month..@end_of_month).each do |i| %>
+        <% if i == @beg_of_month %>
+          <tr>
+            <% i.wday.times do %>
+                <td>X</td>
+            <% end %>
+          </tr>
+        <% end %>
+
+        <tr>
+        <td><%= i.mday %></td>
+        </tr>
+
+        <% if i.wday == 6 %>
+        <tr>
+          <td><%= i.mday %></td> 
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </body>
+</html>
+
+
+
+<h1><%= @beg_of_month.strftime("%B \n") %></h1>
+  <p><%= Date::ABBR_DAYNAMES.join("\t") %></p>
 <% (@beg_of_month..@end_of_month).each do |i| %>
   <% if i == @beg_of_month %>
     <% i.wday.times do %>
-    <% "\t" %>
+      <span>&nbsp;</span>
     <% end %>
   <% end %>
-  <%= "%-3d" % i.mday %>
+  <span><%= i.mday %></span>
   <% if i.wday == 6 %>
-    <%= "\n" %>
+    <br>
   <% end %>
 <% end %>
