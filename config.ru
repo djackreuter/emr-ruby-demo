@@ -1,2 +1,2 @@
 require './app'
-run Multiply
+# run Main
