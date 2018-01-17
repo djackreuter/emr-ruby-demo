@@ -18,11 +18,7 @@ get '/calender' do
   erb :calender
 end
 
-get '/success' do
-  erb :success
-end
-
 post '/send' do
-  Mailer.send_mail(params)
-  redirect '/success'
+  @mail = Mailer.send_mail(params)
+  erb :success
 end
