@@ -1,9 +1,15 @@
 require 'sinatra'
-require_relative 'lib/calender.rb'
+require 'date'
 
 get '/multiply' do
   @x = (1..12)
   @y = (1..12)
   erb :multiplication
+end
+
+get '/calender' do
+  @beg_of_month = Date.civil(1, 1, 1)
+  @end_of_month = Date.civil(1, 1, -1)
+  erb :calender
 end
 
