@@ -13,10 +13,10 @@ class Mailer
       }
     end
 
-    mail = Mail.deliver do
+    Mail.deliver do
       to CONFIG[:recipient]
       from params[:email]
-      subject 'This is a test email'
+      subject params[:subject]
 
       text_part do
         body params[:message]
