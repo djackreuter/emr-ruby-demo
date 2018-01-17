@@ -8,8 +8,8 @@ get '/multiply' do
 end
 
 get '/calender' do
-  @beg_of_month = Date.civil(1, 1, 1)
-  @end_of_month = Date.civil(1, 1, -1)
+  @beg_of_month = Date.civil(2018, 1, 1)
+  @end_of_month = Date.civil(2018, 1, -1)
   erb :calender
 end
 

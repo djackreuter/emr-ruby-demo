@@ -6,8 +6,7 @@
   </head>
   <body>
     <h1>Calender</h1>
-    <h2>January</h2>
-    <%# <h3><%= Date::ABBR_DAYNAMES.join("\t") %>
+    <h2><%= @beg_of_month.strftime("%B") %></h2>
     <table>
       <tr>
         <th>Sun</th>
