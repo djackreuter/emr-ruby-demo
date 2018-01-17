@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'date'
+require_relative 'mailer.rb'
 
 get '/' do
   erb :index
@@ -17,3 +18,7 @@ get '/calender' do
   erb :calender
 end
 
+post '/send' do
+  Mail.send_mail
+  redirect '/success'
+end
