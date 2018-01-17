@@ -18,41 +18,20 @@
         <th>Fri</th>
         <th>Sat</th>
       </tr>
+      <tr>
       <% (@beg_of_month..@end_of_month).each do |i| %>
         <% if i == @beg_of_month %>
-          <tr>
-            <% i.wday.times do %>
-                <td>X</td>
-            <% end %>
-          </tr>
+          <% i.wday.times do %>
+              <td></td>
+          <% end %>      
         <% end %>
-
-        <tr>
+        <% if i.wday == 0 %>
+          </tr><tr>
+        <% end %>
         <td><%= i.mday %></td>
-        </tr>
-
-        <% if i.wday == 6 %>
-        <tr>
-          <td><%= i.mday %></td> 
-        </tr>
-        <% end %>
       <% end %>
+      </tr>
     </table>
   </body>
 </html>
 
-
-
-<h1><%= @beg_of_month.strftime("%B \n") %></h1>
-  <p><%= Date::ABBR_DAYNAMES.join("\t") %></p>
-<% (@beg_of_month..@end_of_month).each do |i| %>
-  <% if i == @beg_of_month %>
-    <% i.wday.times do %>
-      <span>&nbsp;</span>
-    <% end %>
-  <% end %>
-  <span><%= i.mday %></span>
-  <% if i.wday == 6 %>
-    <br>
-  <% end %>
-<% end %>
