@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'date'
 require_relative 'mailer.rb'
+require_relative 'data.rb'
 
 get '/' do
   erb :index
@@ -21,4 +22,9 @@ end
 post '/send' do
   @mail = Mailer.send_mail(params)
   erb :success
+end
+
+get '/ajax' do
+  content_type :json
+  # Champions.array
 end
