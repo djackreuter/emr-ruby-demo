@@ -3,21 +3,22 @@
   <head>
     <meta charset = "utf-8">
     <title>Sinatra</title>
+    <script type="text/javascript" src="/js/script.js"></script>
   </head>
   <body>
   <h1>Email</h1>
     <form method="POST" action="/send">
       <label for="email">Email: </label>
-      <input type="email" name="email">
+      <input id="email" type="email" name="email">
       <br>
       <br>
       <label for="subject">Subject: </label>
-      <input type="text" name="subject">
+      <input id="subject" type="text" name="subject">
       <br>
       <br>
       <label for="message">Message: </label>
       <br>
-      <textarea name="message"></textarea>
+      <textarea id="message" name="message"></textarea>
       <br>
       <button type="submit">Send</button>
     </form>
