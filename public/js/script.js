@@ -8,3 +8,16 @@ function validateForm() {
     return false;
   }
 }
+
+$(function() {
+  $('#show-list').click(function() {
+    $.ajax({
+      dataType: 'json',
+      url: 'http://localhost:4567/ajax',
+      data: ['Chelsea', 'Leicester City', 'Chelsea', 'Manchester City', 'Manchester United'],
+      success: function(result) {
+        $('#list').html(result);
+      }
+    });
+  });
+});
