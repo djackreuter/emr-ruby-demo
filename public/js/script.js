@@ -11,10 +11,9 @@ function validateForm() {
 
 $(function() {
   $('#show-list').click(function() {
-    $.ajax({
+    $.post({
       dataType: 'json',
       url: 'http://localhost:4567/ajax',
-      data: ['Chelsea', 'Leicester City', 'Chelsea', 'Manchester City', 'Manchester United'],
       success: function(result) {
         $('#list').html(result);
       }
