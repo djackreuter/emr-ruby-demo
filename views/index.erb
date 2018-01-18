@@ -7,7 +7,7 @@
   </head>
   <body>
   <h1>Email</h1>
-    <form method="POST" action="/send">
+    <form method="POST" name="sendEmail" onsubmit="return validateForm();" action="/send">
       <label for="email">Email: </label>
       <input id="email" type="email" name="email">
       <br>
