@@ -24,7 +24,7 @@ post '/send' do
   erb :success
 end
 
-get '/ajax' do
+post '/ajax' do
   content_type :json
-  # Champions.array
+  Champions.json
 end
