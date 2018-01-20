@@ -15,7 +15,13 @@ $(function() {
       dataType: 'json',
       url: 'http://localhost:4567/ajax',
       success: function(result) {
-        $('#list').html(result);
+        $('#list').append(`<ol>
+        <li>${result.values[0]}</li>
+        <li>${result.values[1]}</li>
+        <li>${result.values[2]}</li>
+        <li>${result.values[3]}</li>
+        <li>${result.values[4]}</li>
+        </ol>`);
       }
     });
   });
